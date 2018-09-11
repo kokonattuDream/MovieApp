@@ -2,6 +2,8 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
             xmlns:movieapp="clr-namespace:MovieApp;assembly=MovieApp"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
             x:Class="MovieApp.HomePage">
     <movieapp:NowPlayingMoviesPage Title="Now Playing" Icon="nowplaying_movies.png"></movieapp:NowPlayingMoviesPage>
     <movieapp:UpComingMoviesPage Title="UpComing" Icon="upcoming_movies.png"></movieapp:UpComingMoviesPage>
