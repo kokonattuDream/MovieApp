@@ -94,6 +94,21 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\drawable\latest_movies.png" />
+    <AndroidResource Include="Resources\drawable\nowplaying_movies.png" />
+    <AndroidResource Include="Resources\drawable\upcoming_movies.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\latest_movies.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\nowplaying_movies.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\upcoming_movies.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\latest_movies.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\nowplaying_movies.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\upcoming_movies.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\latest_movies.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\nowplaying_movies.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\upcoming_movies.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\latest_movies.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\nowplaying_movies.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\upcoming_movies.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
