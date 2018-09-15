@@ -11,6 +11,8 @@ namespace MovieApp
     {
         public ObservableCollection<NowPlayingMovie> NowPlayingMovies;
 
+        private static bool First = true;
+
         public NowPlayingMoviesPage()
         {
             InitializeComponent();
@@ -20,14 +22,19 @@ namespace MovieApp
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            ApiServices apiServices = new ApiServices();
+            if (First)
+            {
+                ApiServices apiServices = new ApiServices();
 
-            var movies = await apiServices.GetNowPlayingMovies();
-            foreach(var movie in movies){
-                NowPlayingMovies.Add(movie);
+                var movies = await apiServices.GetNowPlayingMovies();
+                foreach (var movie in movies)
+                {
+                    NowPlayingMovies.Add(movie);
+                }
+
+                LvNowPlaying.ItemsSource = NowPlayingMovies;
             }
-
-            LvNowPlaying.ItemsSource = NowPlayingMovies;
+            First = false;
         }
     }
 }
