@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MovieApp.NowPlayingMoviesPage">
     <ContentPage.Content>
-        <ListView SeparatorVisibility="None" HasUnevenRows="true">
+        <ListView x:Name="LvNowPlaying" SeparatorVisibility="None" HasUnevenRows="true">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -12,27 +12,27 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Frame Grid.Column="0" CornerRadius="20" Padding="0">
-                                    <Image Aspect="AspectFill"/>
+                                    <Image Aspect="AspectFill" Source="{Binding CoverImage}"/>
                                 </Frame>
                                 <StackLayout Margin="10,0,0,0" Grid.Column="1">
-                                    <Label FontSize="20" TextColor="Black"/>
+                                    <Label FontSize="20" TextColor="Black" Text="{Binding MovieName}"/>
                                     <StackLayout Orientation="Horizontal">
                                         <Label FontSize="16" TextColor="#757575" Text="Director"/>
-                                        <Label FontSize="16" TextColor="Black"/>
+                                        <Label FontSize="16" TextColor="Black" Text ="{Binding Director}"/>
                                     </StackLayout>
 
                                     <StackLayout Orientation="Horizontal">
                                         <Label FontSize="16" TextColor="#757575" Text="Duration"/>
-                                        <Label FontSize="16" TextColor="Black"/>
+                                        <Label FontSize="16" TextColor="Black" Text="{Binding Duration}"/>
                                     </StackLayout>
 
                                     <StackLayout Orientation="Horizontal">
                                         <Label FontSize="16" TextColor="#757575" Text="Language"/>
-                                        <Label FontSize="16" TextColor="Black"/>
+                                        <Label FontSize="16" TextColor="Black" Text="{Binding Language}"/>
                                     </StackLayout>
 
                                     <StackLayout Orientation="Horizontal">
-                                        <Label FontSize="18" TextColor="Black" FontAttributes="Bold"/>
+                                        <Label FontSize="18" TextColor="Black" FontAttributes="Bold" Text="{Binding Rating}"/>
                                         <Image HeightRequest="20" WidthRequest="20" Source="star_icon.png"/>
                                     </StackLayout>
                                 </StackLayout>

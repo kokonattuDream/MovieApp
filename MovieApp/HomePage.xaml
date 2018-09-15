@@ -10,3 +10,4 @@
     <movieapp:LatestMoviesPage Title="Lastest" Icon="latest_movies.png"></movieapp:LatestMoviesPage>
     
 </TabbedPage>
+ 

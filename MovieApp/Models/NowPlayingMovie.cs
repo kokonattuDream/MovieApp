@@ -37,6 +37,12 @@ namespace MovieApp.Models
 
         public string Logo { get; set; }
 
+        public string CoverImage{
+            get{
+                return string.Format("http://colosseum.somee.com/{0}", Logo.Substring(1));
+            }
+        }
+
         public object LogoFile { get; set; }
 
         public NowPlayingMovie()
