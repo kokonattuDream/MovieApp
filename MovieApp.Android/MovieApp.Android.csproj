@@ -114,6 +114,9 @@
     <AndroidResource Include="Resources\drawable-xhdpi\star_icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\star_icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\star_icon.png" />
+    <AndroidResource Include="Resources\drawable\ellipse.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ellipse.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ellipse.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

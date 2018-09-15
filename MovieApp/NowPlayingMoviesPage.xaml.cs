@@ -36,5 +36,17 @@ namespace MovieApp
             }
             First = false;
         }
+
+        private void onItemSelected(object sender, SelectedItemChangedEventArgs e){
+
+            if (e.SelectedItem == null)
+            {
+                return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
+            }
+
+            var movie = e.SelectedItem as NowPlayingMovie;
+
+            Navigation.PushAsync(new NowPlayingDetailPage(movie));
+        }
     }
 }
