@@ -35,10 +35,17 @@ namespace MovieApp.Models
 
         public string TrailorLink { get; set; }
 
+        public string MovieTrailor{
+            get {
+                return TrailorLink.Replace("watch?v=", "embed/");
+            }
+        }
+
         public string Logo { get; set; }
 
         public string CoverImage{
-            get{
+            get
+            {
                 return string.Format("http://colosseum.somee.com/{0}", Logo.Substring(1));
             }
         }
