@@ -2,73 +2,49 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MovieApp.NowPlayingMoviesPage">
     <ContentPage.Content>
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.4*"/>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.2*"/>
-                <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Image Grid.Row="0"  Grid.RowSpan="4" Aspect="Fill" x:Name="ImgMovieCover"></Image>
-            <BoxView BackgroundColor="Black" Opacity="0.6" Grid.Row="0" Grid.RowSpan="4"></BoxView>
-            <Label x:Name="LblMovieName" Grid.Row="1" TextColor="White" FontSize="24" Margin="15,0,0,0"/>
-            <StackLayout Margin="5,0,0,0" Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.4*"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Image Aspect="AspectFit" Source="ellipse.png" Grid.Column="0"></Image>
-                    <Label TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" x:Name="LblRatedLevel" Grid.Column="0"></Label>
-                    <Label TextColor="Black" BackgroundColor="White" VerticalOptions="Center" x:Name="LblDuration" Grid.Column="1"></Label>
-                    <Label TextColor="Black" BackgroundColor="White" VerticalOptions="Center" x:Name="LblLanguage" Grid.Column="2"></Label>
-                </Grid>
-            </StackLayout>
-            <Image HorizontalOptions="End" Margin="0,0,20,0" Source="play_icon.png" Grid.Row="3" Grid.RowSpan="2">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer x:Name="PlayVideo" Tapped="PlayVideo_OnTapped"/>
-                </Image.GestureRecognizers>
-            </Image>
-            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="5">
-                <Label Margin="5,0,5,0">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span FontSize="16" TextColor="Black" FontAttributes="Bold" Text="Genre:"></Span>
-                            <Span FontSize="16" TextColor="Black" x:Name="LblMovieType"></Span>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Label Margin="5,0,5,0">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span FontSize="16" TextColor="Black" FontAttributes="Bold" Text="Playing Date:"></Span>
-                            <Span FontSize="16" TextColor="Black" x:Name="LblPlayingDate"></Span>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <Label Margin="5,0,5,0">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span FontSize="16" TextColor="Black" FontAttributes="Bold" Text="Starring:"></Span>
-                            <Span FontSize="16" TextColor="Black" x:Name="LblCast"></Span>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-                <ScrollView>
-                    <Label Margin="5,0,5,0">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span FontSize="16" TextColor="Black" FontAttributes="Bold" Text="Description:"></Span>
-                                <Span FontSize="16" TextColor="Black" x:Name="LblDescription"></Span>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                </ScrollView>
-                <Button x:Name="BtnBookTicket" Clicked="BtnBookTicket_OnClicked" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" TextColor="White" BackgroundColor="#FF5722" FontSize="24" Text="Book Ticket"></Button>
-            </StackLayout>
+            <ListView x:Name="LvNowPlaying" SeparatorVisibility="None" HasUnevenRows="True" ItemSelected="LvNowPlaying_OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BorderColor="LightGray" Margin="5" Padding="0" HasShadow="False">
+                                <Grid Margin="15,5,10,5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Frame Grid.Column="0" CornerRadius="20" Padding="0">
+                                        <Image Aspect="AspectFill" Source="{Binding CoverImage}"/>
+                                    </Frame>
+                                    <StackLayout Margin="10,0,0,0" Grid.Column="1">
+                                        <Label FontSize="20" TextColor="Black" Text="{Binding MovieName}"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label FontSize="16" TextColor="#757575" Text="Director"/>
+                                            <Label FontSize="16" TextColor="Black" Text="{Binding Director}"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label FontSize="16" TextColor="#757575" Text="Duration"/>
+                                            <Label FontSize="16" TextColor="Black" Text="{Binding Duration}"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label FontSize="16" TextColor="#757575" Text="Language"/>
+                                            <Label FontSize="16" TextColor="Black" Text="{Binding Language}"/>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label FontSize="18" TextColor="Black" FontAttributes="Bold" Text="{Binding Rating}" />
+                                            <Image HeightRequest="20" WidthRequest="20" Source="star_icon.png"/>
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ActivityIndicator HorizontalOptions="Center" 
+                               VerticalOptions="Center" 
+                               Color="#FF5722" IsRunning="True" x:Name="BusyIndicator"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

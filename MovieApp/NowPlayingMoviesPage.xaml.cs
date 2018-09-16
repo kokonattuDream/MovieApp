@@ -38,7 +38,7 @@ namespace MovieApp
             First = false;
         }
 
-        private void onItemSelected(object sender, SelectedItemChangedEventArgs e){
+        private void LvNowPlaying_OnItemSelected(object sender, SelectedItemChangedEventArgs e){
             
             var movie = e.SelectedItem as NowPlayingMovie;
 
