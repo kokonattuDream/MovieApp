@@ -17,6 +17,7 @@ namespace MovieApp
     {
         public ObservableCollection<UpComingMovie> UpComingMovies;
         private static bool First = true;
+
         public UpComingMoviesPage()
         {
             InitializeComponent();

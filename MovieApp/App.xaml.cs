@@ -1,5 +1,6 @@
 using System;
 using Xamarin.Forms;
+using Syncfusion.Licensing;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -10,7 +11,7 @@ namespace MovieApp
         public App()
         {
             InitializeComponent();
-
+            SyncfusionLicenseProvider.RegisterLicense("MjM5ODhAMzEzNjJlMzIyZTMwaGROUE14dzBld3IzRnZwbmc1VUthdlpmN0dEVVoyOVRpLzRGZWQxZUtJZz0=");
             MainPage = new NavigationPage(new HomePage());
         }
 

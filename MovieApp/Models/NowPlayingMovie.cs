@@ -51,9 +51,5 @@ namespace MovieApp.Models
         }
 
         public object LogoFile { get; set; }
-
-        public NowPlayingMovie()
-        {
-        }
     }
 }
