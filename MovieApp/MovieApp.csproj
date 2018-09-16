@@ -12,9 +12,14 @@
   <ItemGroup>
     <Compile Remove="NowPlaying.xaml.cs" />
     <Compile Remove="BookTicketPage.cs" />
+    <Compile Remove="MainPage.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="NowPlaying.xaml" />
+    <EmbeddedResource Remove="MainPage.xaml" />
   </ItemGroup>
 </Project>

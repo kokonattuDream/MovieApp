@@ -33,20 +33,21 @@ namespace MovieApp
                 }
 
                 LvNowPlaying.ItemsSource = NowPlayingMovies;
+                BusyIndicator.IsRunning = false;
             }
             First = false;
         }
 
         private void onItemSelected(object sender, SelectedItemChangedEventArgs e){
-
-            if (e.SelectedItem == null)
-            {
-                return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
-            }
-
+            
             var movie = e.SelectedItem as NowPlayingMovie;
 
-            Navigation.PushAsync(new NowPlayingDetailPage(movie));
+            if (movie != null)
+            {
+                Navigation.PushAsync(new NowPlayingDetailPage(movie));
+            }
+
+            ((ListView)sender).SelectedItem = null;
         }
     }
 }

@@ -13,6 +13,7 @@ namespace MovieApp.Services
         private string nowPlayingMoviesUrl = "http://colosseum.somee.com/api/NowPlayingMovies";
         private string upComingMovieUrl = "http://colosseum.somee.com/api/UpComingMovies";
         private string bookTicketUrl = "http://colosseum.somee.com/api/Orders";
+        private string latestMoviesUrl = "http://colosseum.somee.com/api/LatestMovies";
 
         private string APIKEY = "ApiKey";
         private string KEY = "e0d9b4e1-0310-4f03-978b-3728d1c77b42";
@@ -44,6 +45,20 @@ namespace MovieApp.Services
             var movieResponse = await responseMessage.Content.ReadAsStringAsync();
 
             return JsonConvert.DeserializeObject<List<UpComingMovie>>(movieResponse);
+        }
+
+        public async Task<List<LatestMovie>> GetLatestMovies()
+        {
+            var client = new HttpClient();
+
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, latestMoviesUrl);
+
+            requestMessage.Headers.Add("ApiKey", "8e75a7f2-2b51-4360-b684-a14b1b233570");
+
+            var responseMessage = await client.SendAsync(requestMessage);
+            var movieResponse = await responseMessage.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<List<LatestMovie>>(movieResponse);
         }
 
         public async Task<bool> Order(BookTicket ticket){

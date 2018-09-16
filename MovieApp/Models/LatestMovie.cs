@@ -17,7 +17,7 @@ namespace MovieApp.Models
 
         public DateTime ReleaseDate { get; set; }
 
-        public int Rating { get; set; }
+        public double Rating { get; set; }
 
         public string Genre { get; set; }
 
@@ -27,8 +27,20 @@ namespace MovieApp.Models
 
         public object LogoFile { get; set; }
 
-        public LatestMovie()
+        public string MovieTrailor
         {
+            get
+            {
+                return TrailorLink.Replace("watch?v=", "embed/");
+            }
+        }
+
+        public string CoverImage
+        {
+            get
+            {
+                return String.Format("http://colosseum.somee.com/{0}", Logo.Substring(1));
+            }
         }
     }
 }
