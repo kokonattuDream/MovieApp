@@ -9,7 +9,11 @@ namespace MovieApp
 {
     public partial class NowPlayingDetailPage : ContentPage
     {
-        private string _tailorLink;
+        private string _trailorLink;
+        private string _time1;
+        private string _time2;
+        private string _time3;
+        private string _ticketPrice;
 
         public NowPlayingDetailPage(NowPlayingMovie movie)
         {
@@ -18,7 +22,7 @@ namespace MovieApp
 
 
             LblMovieName.Text = movie.MovieName;
-            ImgMovieConver.Source = movie.CoverImage;
+            ImgMovieCover.Source = movie.CoverImage;
             LblDuration.Text = movie.Duration;
             LblLanguage.Text = movie.Language;
             LblMovieType.Text = movie.PlayingDate.ToShortDateString();
@@ -26,11 +30,20 @@ namespace MovieApp
             LblDescription.Text = movie.Description;
             LblRatedLevel.Text = movie.RatedLevel;
 
-            _tailorLink = movie.TrailorLink;
+            _trailorLink = movie.TrailorLink;
+            _time1 = movie.ShowTime1.ToShortTimeString();
+            _time2 = movie.ShowTime2.ToShortTimeString();
+            _time3 = movie.ShowTime3.ToShortTimeString();
+            _ticketPrice = movie.TicketPrice;
         }
 
         private void PlayVideo_OnTapped(object sender, EventArgs e){
-            Navigation.PushAsync(new VideoPage(_tailorLink));
+            Navigation.PushAsync(new VideoPage(_trailorLink));
+        }
+
+        private void BtnBookTicket_OnClicked(object sender, EventArgs e){
+            Navigation.PushAsync(new BookTicketPage(ImgMovieCover.Source, LblMovieName.Text, LblPlayingDate.Text, _time1, _time2, _time3, _ticketPrice));
         }
     }
 }
+
