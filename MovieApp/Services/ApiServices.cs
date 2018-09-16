@@ -32,7 +32,7 @@ namespace MovieApp.Services
             return JsonConvert.DeserializeObject<List<NowPlayingMovie>>(movieResponse);
         }
 
-        public async Task<List<NowPlayingMovie>> GetUpComingMovies()
+        public async Task<List<UpComingMovie>> GetUpComingMovies()
         {
             var client = new HttpClient();
 
@@ -43,7 +43,7 @@ namespace MovieApp.Services
             var responseMessage = await client.SendAsync(requestMessage);
             var movieResponse = await responseMessage.Content.ReadAsStringAsync();
 
-            return JsonConvert.DeserializeObject<List<NowPlayingMovie>>(movieResponse);
+            return JsonConvert.DeserializeObject<List<UpComingMovie>>(movieResponse);
         }
 
         public async Task<bool> Order(BookTicket ticket){

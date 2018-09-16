@@ -25,8 +25,20 @@ namespace MovieApp.Models
 
         public object LogoFile { get; set; }
 
-        public UpComingMovie()
+        public string MovieTrailor
         {
+            get
+            {
+                return TrailorLink.Replace("watch?v=", "embed/");
+            }
+        }
+
+        public string CoverImage
+        {
+            get
+            {
+                return String.Format("http://colosseum.somee.com/{0}", Logo.Substring(1));
+            }
         }
     }
 }
